@@ -14,8 +14,14 @@ export default class MessageStore {
   }
 
   newMessage(msg) {
-    this.messages.push(msg);
-    this.trigger('message.new', this.messages);
+    console.log(msg);
+    let newMsg = {
+      encodedMessage: msg,
+      decodedMessage: msg,
+      timestamp: new Date().toString()
+    };
+    this.messages.push(newMsg);
+    riot.control.trigger('message.new', this.messages);
   }
 
 }
