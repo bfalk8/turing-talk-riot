@@ -8,9 +8,15 @@ $font: Helvetica;
 $monoFont: "Lucida Console", Monaco, monospace;
 $font-color: #474448;
 
+html {
+  height: 100%;
+}
+
 body {
     background: $bgColor;
     font-family: $monoFont;
+    height: 100%;
+    overflow: hidden;
 }
 
 p {
@@ -19,8 +25,9 @@ p {
 }
 
 h1 {
-  font-family: $monoFont;;
+  font-family: $monoFont;
   margin-top: 0;
+  margin: 0;
 }
 
 h2 {
