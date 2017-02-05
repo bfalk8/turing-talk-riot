@@ -15,6 +15,8 @@ import 'components/message/message.tag';
     this.shouldScroll = true;
     this.handleScroll = handleScroll.bind(this);
     this.on('updated', update.bind(this));
-    riot.control.on('message.new', updateMessages.bind(this));
+    this.on('mount', () => {
+      riot.control.on('message.new', updateMessages.bind(this));
+    });
   </script>
 </message-feed>
