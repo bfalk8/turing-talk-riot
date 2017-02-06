@@ -1,5 +1,5 @@
 import style from './enigma-settings.css';
-import {rotorOptions, shiftOptions, alphabet, stdPlug, maxPlugs, handleUpdate, updateSettings} 
+import {rotorOptions, shiftOptions, alphabet, stdPlug, maxPlugs, handleUpdate, updateSettings, handlePlugAdd, handlePlugUpdate} 
   from './enigma-settings.js';
 
 <enigma-settings>
@@ -63,6 +63,40 @@ import {rotorOptions, shiftOptions, alphabet, stdPlug, maxPlugs, handleUpdate, u
     </div>
   </div>
 
+  <div if={hasError} class={style.errorBox}>
+    {errorMsg}
+  </div>
+
+  <div class={style.row}>
+    <div class={style.colWhole}>
+      <p>Plug Board</p>
+    </div>
+  </div>
+
+  <div class={style.row}>
+    <button class={style.addBtn} onclick={handlePlugAdd}>
+      + Add Plug +
+    </button>
+  </div>
+
+  <div class={style.row} each={plug, index in plugboard}>
+    <div class={style.col}>
+      <select name={'plugA ' + index} onchange={handlePlugUpdate} value={plug[0]}>
+        <option each={x in alphabet} value={x} selected={plug[0] === x}>{x}</option>
+      </select>
+    </div>
+
+    <div class={style.col}>
+      {'<--->'}
+    </div>
+
+    <div class={style.col}>
+      <select name={'plugB ' + index} onchange={handlePlugUpdate} value={plug[1]}>
+        <option each={x in alphabet} value={x} selected={plug[1] === x}>{x}</option>
+      </select>
+    </div>
+  </div>
+
   <script>
     this.style = style;
     this.rotorOptions = rotorOptions;
@@ -78,7 +112,12 @@ import {rotorOptions, shiftOptions, alphabet, stdPlug, maxPlugs, handleUpdate, u
     this.rightShift = 0;
     this.plugboard = [];
 
+    this.hasError = false;
+    this.errorMsg = '';
+
     this.handleUpdate = handleUpdate.bind(this);
+    this.handlePlugUpdate = handlePlugUpdate.bind(this);
+    this.handlePlugAdd = handlePlugAdd.bind(this);
     this.on('mount', () => {
       riot.control.on('settings.update', updateSettings.bind(this));
     });

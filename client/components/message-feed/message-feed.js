@@ -9,6 +9,5 @@ export function handleScroll(elem) {
 
 export function updateMessages(messages) {
   this.messages = messages;
-  console.log(messages);
   this.update();
 }
