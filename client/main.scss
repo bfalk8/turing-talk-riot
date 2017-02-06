@@ -15,7 +15,8 @@ html {
 body {
     background: $bgColor;
     font-family: $monoFont;
-    height: 100%;
+    // height: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
