@@ -1,0 +1,35 @@
+.switch {
+  top: -9999px;
+  left: -9999px;
+}
+
+.show {
+  composes: switch;
+  position: static;
+}
+
+.hide {
+  composes: switch;
+  position: absolute;
+}
+
+.row {
+  composes: pure-g from 'purecss/build/grids.css';
+}
+
+.btn {
+  composes: pure-u-1-2 from 'purecss/build/grids-units.css';
+  cursor: pointer;
+}
+
+.floatwrap {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #E1F0C4;
+  color: #474448;
+  font-family: "Lucida Console", Monaco, monospace;
+}

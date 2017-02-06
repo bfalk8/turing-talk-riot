@@ -75,11 +75,12 @@ import {rotorOptions, shiftOptions, alphabet, stdPlug, maxPlugs, handleUpdate, u
     this.rightRotor = 3;
     this.leftShift = 0;
     this.middleShift = 0;
-    this.rightShift = 9;
+    this.rightShift = 0;
     this.plugboard = [];
 
     this.handleUpdate = handleUpdate.bind(this);
-
-    riot.control.on('settings.update', updateSettings.bind(this));
+    this.on('mount', () => {
+      riot.control.on('settings.update', updateSettings.bind(this));
+    });
   </script>
 </enigma-settings>
