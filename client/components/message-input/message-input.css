@@ -21,4 +21,5 @@
 
 .flexButton {
   composes: pure-button from 'purecss/build/buttons.css';
+  cursor: pointer;
 }
