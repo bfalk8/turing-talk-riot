@@ -4,3 +4,8 @@ export function handleKeyPress(e) {
     this.refs.input.value = '';
   }
 }
+
+export function handleBtnPress() {
+  riot.control.trigger('message.send', this.refs.input.value);
+  this.refs.input.value = '';
+}

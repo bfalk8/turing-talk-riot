@@ -4,7 +4,7 @@ import 'components/message-input/message-input.tag';
 
 <chat class={style.root}>
   <message-feed style='height: 90%' />
-  <message-input style='height: 5%' />
+  <message-input style='margin-top: 5px' />
 
   <script>
     this.style = style;
